@@ -39,7 +39,7 @@ import java.util.*
     lateinit var dxl: DungeonsAPI
     override fun onEnable() {
         messageConfig = MessageConfig(this, ConfigProvider(this))
-        settings = Settings(messageConfig)
+        settings = Settings(messageConfig,Bukkit.getVersion())
         createConnection()
         defaultDatabase()
         dataSourceHelper = DataSourceHelper(dataSource)

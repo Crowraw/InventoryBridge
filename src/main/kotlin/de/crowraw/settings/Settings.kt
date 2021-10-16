@@ -17,13 +17,14 @@ import de.erethon.dungeonsxl.api.DungeonsAPI
     
     
     
- */class Settings(messageConfig: MessageConfig) {
+ */class Settings(messageConfig: MessageConfig, version: String) {
 
     val saveXP: Boolean
     val syncEnderChest: Boolean
     var dungeonXLActive: Boolean = true
     var autoBackUp: Boolean = true
     var interval = 10
+    var withOffHand = false
 
     init {
 
@@ -36,5 +37,14 @@ import de.erethon.dungeonsxl.api.DungeonsAPI
         syncEnderChest = messageConfig.getMessageForKey("setting_save_enderchest").toBoolean()
         autoBackUp = messageConfig.getMessageForKey("setting_auto_Back_UP").toBoolean()
         interval = messageConfig.getMessageForKey("setting_auto_Back_UP_Interval_Min").toInt()
+
+        if (version.contains("1.12") ||
+            version.contains("1.13") ||
+            version.contains("1.14") ||
+            version.contains("1.15") ||
+            version.contains("1.16") ||
+            version.contains("1.17")){
+            withOffHand=true
+        }
     }
 }

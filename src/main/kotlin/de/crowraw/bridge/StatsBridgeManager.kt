@@ -32,6 +32,9 @@ import org.bukkit.entity.Player
             player.inventory.chestplate = it.chestplate
             player.inventory.leggings = it.leggings
             player.inventory.boots = it.boots
+            if (settings.withOffHand) {
+                player.inventory.setItemInOffHand(it.offHand)
+            }
 
             for (i in 0..it.contents.size) {
                 if (it.contents[i] == null) {
