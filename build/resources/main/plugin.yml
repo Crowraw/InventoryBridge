@@ -1,0 +1,5 @@
+main: de.crowraw.InventoryBridge
+version: 1.0
+name: InventoryBridge
+softdepend:
+  - DungeonsXL
