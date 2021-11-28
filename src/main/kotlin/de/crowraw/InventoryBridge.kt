@@ -79,7 +79,7 @@ import java.util.*
 
     private fun defaultDatabase() {
         try {
-
+// TODO: 28.11.2021 this looks shit make an update idiot
             val connection = dataSource.connection
             val prepared = connection.prepareStatement(
                 "CREATE TABLE IF NOT EXISTS INVENTORIES(" +
