@@ -18,7 +18,7 @@ repositories {
 }
 
 dependencies {
-    compileOnly("de.erethon.dungeonsxl:dungeonsxl-api:0.18-SNAPSHOT")
+    compileOnly("de.erethon.dungeonsxl:dungeonsxl-api:0.18-PRE-02")
     compileOnly("org.spigotmc:spigot:1.17.1-R0.1-SNAPSHOT")
     implementation("de.crowraw.lib:CrowLIB:1.0"){
         exclude("org.spigotmc")
@@ -36,10 +36,6 @@ tasks.test {
 }
 tasks.withType<Jar> {
     // Otherwise you'll get a "No main manifest attribute" error
-    manifest {
-        attributes["Main-Class"] = "com.example.MainKt"
-    }
-
     // To add all of the dependencies
     from(sourceSets.main.get().output)
 
@@ -49,5 +45,5 @@ tasks.withType<Jar> {
     })
 }
 tasks.withType<KotlinCompile> {
-    kotlinOptions.jvmTarget = "15"
+    kotlinOptions.jvmTarget = "1.8"
 }

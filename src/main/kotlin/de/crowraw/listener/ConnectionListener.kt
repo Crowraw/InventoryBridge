@@ -6,6 +6,7 @@ import org.bukkit.Bukkit
 import org.bukkit.Material
 import org.bukkit.entity.Player
 import org.bukkit.event.EventHandler
+import org.bukkit.event.EventPriority
 import org.bukkit.event.Listener
 import org.bukkit.event.player.PlayerJoinEvent
 import org.bukkit.event.player.PlayerQuitEvent
@@ -41,7 +42,7 @@ import java.util.concurrent.TimeUnit
         plugin.manager.validAndSave(event.player)
     }
 
-    @EventHandler
+    @EventHandler(priority = EventPriority.LOWEST)
     private fun onJoin(event: PlayerJoinEvent) {
         clearInv(event.player)
         var timeElapse = 0
@@ -67,8 +68,8 @@ import java.util.concurrent.TimeUnit
             player.enderChest.clear()
         }
         if (plugin.settings.saveXP) {
-            player.level=0
-            player.exp=0f
+            player.level = 0
+            player.exp = 0f
         }
         player.inventory.clear()
         CrowPlayer(player).resetArmor()
